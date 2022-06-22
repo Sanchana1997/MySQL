@@ -27,4 +27,9 @@ WHERE (free = 1 AND lag_free = 1 ) OR
 ;
 
 
+#Concept ranking and partitioning using over 
+reference - https://www.ptr.co.uk/blog/sql-server-aggregate-functions-over-clause
+select player_id , event_date, 
+sum(games_played) over (partition by player_id order by event_date) as games_played_so_far
+from Activity 
 
